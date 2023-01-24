@@ -1,0 +1,38 @@
+package lab3;
+
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class program2 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		GregorianCalendar today, endDay;
+		today = new GregorianCalendar();
+		Scanner sc = new Scanner(System.in);
+		String inputStr;
+		int year, month, day;
+		
+		System.out.print("Enter the end date in the format dd/MM/yyyy :");
+		inputStr = sc.next();
+		day =Integer.parseInt(inputStr.substring(0, 2));
+		month =Integer.parseInt(inputStr.substring(3, 5));
+		year =Integer.parseInt(inputStr.substring(6));
+		
+		endDay = new GregorianCalendar(year, month ,day);
+		//System.out.print("endDay"+day+" "+month+" "+year);
+		System.out.print(endDay.getTime());
+		
+		long result = (endDay.getTime().getTime() - today.getTime().getTime())
+		/ 86400000;
+		
+		long remainder = (endDay.getTime().getTime() - today.getTime().getTime())
+		% 86400000;
+				
+		if (remainder > (86400000/2)) {
+			result +=1;
+		}
+		
+		System.out.print("It is "+result+" day(s) until "+inputStr+" .");
+		
+	}
+}
