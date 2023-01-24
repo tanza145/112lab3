@@ -1,0 +1,43 @@
+package lab3;
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class lab333 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		double alpha , beta, distance;
+		
+		DecimalFormat df = new DecimalFormat();
+		
+		System.out.print("Angle alpha (in degree):");
+		alpha = sc.nextDouble();
+		System.out.print("Angle beta (in degree):");
+		beta = sc.nextDouble();
+		System.out.print("Distance betweem points A and B (ft):");
+		distance = sc.nextDouble();
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("\n");
+		
+		double AlphaRad = Math.toRadians(alpha);
+		double BetaRad = Math.toRadians(beta);
+		
+		double height = (distance*Math.sin(AlphaRad)*Math.sin(BetaRad))
+				/ Math.sqrt(Math.sin(AlphaRad+BetaRad)*Math.sin(AlphaRad-BetaRad));
+						
+		System.out.print("Estimating the height of the pole");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("Angle at point A (deg): "+df.format(alpha));
+		System.out.print("\n");
+		System.out.print("Angle at point B (deg)"+df.format(beta));
+		System.out.print("\n");
+		System.out.print("Distance betweem A and B (ft):"+df.format(distance));
+		System.out.print("\n");
+		System.out.print("Estimating height (ft): "+df.format(height));
+	}
+
+}
